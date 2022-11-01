@@ -1,0 +1,11 @@
+{
+  "id": 2,
+  "name": "Maceió",
+  "code": "MCZ",
+  "city": "Maceió",
+  "area": 50000,
+  "address": "Av. Atlântica, 50",
+  "postal_code": "80000-000",
+  "description": "Galpão de Maceió.",
+  "state": "AL"
+}

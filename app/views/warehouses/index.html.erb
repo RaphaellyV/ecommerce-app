@@ -4,6 +4,6 @@
   <p>Nenhum galpão encontrado</p>
 <% else %>
   <% @warehouses.each do |w| %>
-    <div><%= w["name"] %></div>
+    <div><%= link_to w["name"], warehouse_path(w["id"]) %></div>
   <% end %>
 <% end %>
