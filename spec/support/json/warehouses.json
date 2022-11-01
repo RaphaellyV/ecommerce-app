@@ -1,0 +1,28 @@
+[
+  {
+    "id": 2,
+    "name": "Maceió",
+    "code": "MCZ",
+    "city": "Maceió",
+    "area": 50000,
+    "created_at": "2022-10-25T21:58:20.009Z",
+    "updated_at": "2022-10-25T21:58:20.009Z",
+    "address": "Av. Atlântica, 50",
+    "postal_code": "80000-000",
+    "description": "Galpão de Maceió.",
+    "state": "AL"
+  },
+  {
+    "id": 1,
+    "name": "Rio",
+    "code": "SDU",
+    "city": "Rio de Janeiro",
+    "area": 60000,
+    "created_at": "2022-10-25T21:58:19.991Z",
+    "updated_at": "2022-10-25T21:58:19.991Z",
+    "address": "Av. do Porto, 1000",
+    "postal_code": "20000-000",
+    "description": "Galpão do Rio.",
+    "state": "RJ"
+  }
+]
