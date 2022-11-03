@@ -3,11 +3,14 @@ require 'rails_helper'
 describe 'Usuário visita tela inicial' do
   it 'e vê galpões' do
     # Arrange
-    json_data = File.read(Rails.root.join('spec/support/json/warehouses.json'))
-    fake_response = double("faraday_response", status: 200, body: json_data)
+    warehouses = []
+    warehouses << Warehouse.new(id: 2, name: "Maceió", code: "MCZ", city: "Maceió", area: 50000, address: "Av. Atlântica, 50", 
+                                postal_code: "80000-000", description: "Galpão de Maceió.", state: "AL")
+    warehouses << Warehouse.new(id: 1, name: "Rio", code: "SDU", city: "Rio de Janeiro", area: 60000, address: "Av. do Porto, 1000", 
+                                postal_code: "20000-000", description: "Galpão do Rio.", state: "RJ")
 
-    allow(Faraday).to receive(:get).with('http://localhost:4000/api/v1/warehouses').and_return(fake_response)
-    
+    allow(Warehouse).to receive(:all).and_return(warehouses)
+
     # Act
     visit root_path
 
@@ -19,9 +22,9 @@ describe 'Usuário visita tela inicial' do
   
   it 'e não existem galpões' do
     # Arrange
-    fake_response = double("faraday_response", status: 200, body: "{}")
+    warehouses = []
 
-    allow(Faraday).to receive(:get).with('http://localhost:4000/api/v1/warehouses').and_return(fake_response)
+    allow(Warehouse).to receive(:all).and_return(warehouses)
     
     # Act
     visit root_path
@@ -32,9 +35,13 @@ describe 'Usuário visita tela inicial' do
 
   it 'e vê detalhes de um galpão' do
     # Arrange
-    json_data = File.read(Rails.root.join('spec/support/json/warehouses.json'))
-    fake_response = double("faraday_response", status: 200, body: json_data)
-    allow(Faraday).to receive(:get).with('http://localhost:4000/api/v1/warehouses').and_return(fake_response)
+    warehouses = []
+    warehouses << Warehouse.new(id: 2, name: "Maceió", code: "MCZ", city: "Maceió", area: 50000, address: "Av. Atlântica, 50", 
+                                postal_code: "80000-000", description: "Galpão de Maceió.", state: "AL")
+    warehouses << Warehouse.new(id: 1, name: "Rio", code: "SDU", city: "Rio de Janeiro", area: 60000, address: "Av. do Porto, 1000", 
+                                postal_code: "20000-000", description: "Galpão do Rio.", state: "RJ")
+
+    allow(Warehouse).to receive(:all).and_return(warehouses)
     
     json_data = File.read(Rails.root.join('spec/support/json/warehouse.json'))
     fake_response = double("faraday_response", status: 200, body: json_data)
